@@ -1,0 +1,20 @@
+<div class="row">
+    {{#each tickets}}
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{this.ASUNTO}}</h5>
+        <p class="card-text">{{this.CORREOUSUARIO}}</p>
+        <p class="card-text">{{this.NOMBREUSUARIO}}</p>
+        <p class="card-text">{{this.ID_TECNICO}}</p>
+        <p class="card-text">{{this.ID_TICKET}}</p>
+        <p class="card-text">{{this.ID_USUARIO}}</p>
+        <p class="card-text">{{this.DESCRIPCION}}</p>
+        <p class="card-text">{{this.FECHATICKET}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+

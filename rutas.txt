@@ -1,0 +1,7 @@
+http://localhost:8085/api/tecnicos/create
+
+http://localhost:8085/api/usuarios/create
+
+http://localhost:8085/api/usuarios
+
+http://localhost:8085/api/tecnicos/

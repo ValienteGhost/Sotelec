@@ -1,0 +1,79 @@
+<form id="createTicket">
+    
+    <!-- Categoría del Ticket -->
+    <div class="mb-3">
+        <label for="category" class="form-label">Seleccionar categoría</label>
+        <select class="form-select" id="category" onchange="showSpecifications(this.value)">
+            <option value="" disabled selected>Elige una opción</option>
+            <option value="hardware">Hardware - Relacionado con componentes físicos</option>
+            <option value="software">Software - Relacionado con programas y aplicaciones</option>
+            <option value="ofimatica">Ofimática - Relacionado con herramientas de oficina</option>
+        </select>
+    </div>
+
+    <!-- Especificación de la Categoría -->
+    <div class="mb-3" id="specificationDiv" style="display:none;">
+        <label for="specification" class="form-label">Especificación</label>
+        <select class="form-select" id="specification">
+            <!-- Las opciones serán agregadas dinámicamente con JavaScript -->
+        </select>
+    </div>
+
+    <!-- Asunto del Ticket -->
+    <div class="mb-3">
+        <label for="subject" class="form-label">Asunto</label>
+        <input type="text" class="form-control" id="subject" placeholder="Escribe el asunto del ticket" required>
+    </div>
+
+    <!-- Descripción del Ticket -->
+    <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="Escribe una descripción detallada del problema" required></textarea>
+    </div>
+
+     <!-- Botón para Enviar el Ticket -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enviar ticket</button>
+    </div>
+</form>
+
+<script>
+    function showSpecifications(category) {
+        let specification = document.getElementById('specification');
+        let specificationDiv = document.getElementById('specificationDiv');
+
+        // Limpiar opciones anteriores
+        specification.innerHTML = "";
+
+        if (category === 'hardware') {
+            specification.innerHTML = `
+                <option value="pc">Tiene relación a PC</option>
+                <option value="projector">Proyectores y relacionados</option>
+                <option value="otros">Otros</option>
+            `;
+        } else if (category === 'software') {
+            specification.innerHTML = `
+                <option value="elearning">Plataforma de aprendizaje en línea</option>
+                <option value="educational">Software educativo</option>
+                <option value="school-management">Aplicaciones de gestión escolar</option>
+                <option value="collaboration">Herramientas de colaboración en línea</option>
+                <option value="graphic-design">Software de diseño gráfico (para proyectos escolares)</option>
+                <option value="otros">Otros</option>
+            `;
+        } else if (category === 'ofimatica') {
+            specification.innerHTML = `
+                <option value="word-processing">Procesadores de texto</option>
+                <option value="spreadsheets">Hojas de cálculo</option>
+                <option value="presentations">Presentaciones</option>
+                <option value="email">Correo electrónico</option>
+                <option value="document-management">Gestión de documentos</option>
+                <option value="otros">Otros</option>
+            `;
+        }
+
+        specificationDiv.style.display = 'block';
+    }
+</script>
+
+
+<script src="/js/usuarios/create.js"></script>
